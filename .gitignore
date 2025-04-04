@@ -1,0 +1,25 @@
+doorbellcam/archive
+doorbellcam/archive (1)
+doorbellcam/cnn.pth
+doorbellcam/cnn1.pth
+doorbellcam/cnn2.pth
+
+
+cctvgun
+
+doorbellcam/p.py
+
+
+results/cctvgtestingvideos/
+
+
+results/clips
+
+results/best_bbox_h_mAP_epoch_33.pth
+
+results/VID_20241202_234744.mp4
+
+doorbellcam/retfacedetection.py
+
+
+
