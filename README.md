@@ -39,6 +39,18 @@ requirements.txt in workspace
 _base and deformable_detr in root
 Train model to get .pth... Refer to trained .ipynb for 
 
+Use following ffmpeg commands if video size exceeds DETR input size
+```
+ffmpeg -i 20241203_170237.mp4 -s 640x480 -c:a copy 20241203_170237_resized.mp4
+
+ffmpeg -i 20241203_170144.mp4 -s 640x480 -c:a copy 20241203_170144_resized.mp4
+
+ffmpeg -i 20241203_170119.mp4 -s 640x480 -c:a copy 20241203_170119_resized.mp4
+
+ffmpeg -i 20241203_170054.mp4 -s 640x480 -c:a copy 20241203_170054_resized.mp4
+
+ffmpeg -i 20241203_165932.mp4 -s 640x480 -c:a copy 20241203_165932_resized.mp4
+```
 
 ## Authors
 - [@Om Guin](https://github.com/OmGuin)
