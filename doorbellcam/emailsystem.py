@@ -12,12 +12,12 @@ subject = "[URGENT] GUN DETECTED ON CAMPUS"
 message = 'A FIREARM HAS BEEN DETECTED BY A CCTV CAMERA ON CAMPUS. THIS IS NOT A TEST. LOCK DOWN IMMEDIATELY'
 
 text = f"Subject: {subject}\n\n{message}"
-
-server = smtplib.SMTP("smtp.gmail.com", 587)
+port = 0 #change this
+server = smtplib.SMTP("smtp.gmail.com", port)
 
 server.starttls()
-
-server.login(email, "enor kisf wbzp jjkf")
+google_app_pass = "blooporium" # change this
+server.login(email, google_app_pass)
 
 server.sendmail(email, reciever_email, text)
 print("Email sent")
