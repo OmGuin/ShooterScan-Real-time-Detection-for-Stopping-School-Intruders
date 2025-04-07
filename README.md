@@ -25,7 +25,8 @@ develops and demonstrates a system that can help make our schools safer
 and more secure without violating individual privacy.
 
 ## Documentation
-
+Note: .ipynb files are intended to be run on vast.ai. Utilize L40 or Nvidia RTX 4090 GPU for ideal performance at low cost.
+Thank you [Vast](vast.ai) for bringing convenience to training.
 
 ### Doorbell Cam
 Obtain RTSP/Flask stream link  
