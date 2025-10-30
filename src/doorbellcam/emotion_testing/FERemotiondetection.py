@@ -22,7 +22,7 @@ while True:
     
     font = cv2.FONT_HERSHEY_SIMPLEX
 
-    cv2.imshow("ting", frame)
+    cv2.imshow("emotion frame", frame)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
