@@ -1,7 +1,7 @@
 from moviepy.video.io.VideoFileClip import VideoFileClip
 
 # Load the video
-input_video = "VID_20241202_234744.mp4"  # Replace with the path to your video
+input_video = "C:\Users\omgui\Downloads\sciencefair\results\VID_20241202_234744.mp4"  # Replace with the path to your video
 output_folder = "clips/"  # Folder to save the clips
 
 # Create the output folder if it doesn't exist

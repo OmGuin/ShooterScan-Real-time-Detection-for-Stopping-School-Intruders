@@ -4,10 +4,10 @@ from ultralytics import YOLO
 import cv2
 import numpy as np
 from PIL import Image
-facemodel = YOLO(r'yolov11n-face.pt', verbose = False)
-clips = r"clips"
-
 from deepface import DeepFace
+
+facemodel = YOLO(r'C:\Users\omgui\Downloads\sciencefair\results\yolov11n-face.pt', verbose = False)
+clips = r"C:\Users\omgui\Downloads\sciencefair\results\clips"
 
 
 for clip in os.listdir(clips):
@@ -49,7 +49,6 @@ for clip in os.listdir(clips):
                 face_img = video_resized[max(0, y1-50):min(y2+50, video_resized.shape[0]), max(0, x1-50):min(x2+50, video_resized.shape[1])]
                 analysis = DeepFace.analyze(img_path = face_img, actions=['emotion'], enforce_detection = False)
                 dominant_emotion = analysis[0]['dominant_emotion']
-                #face_img = cv2.resize(face_img, (48, 48))
                 
                 label = dominant_emotion
                 cvzone.cornerRect(video_resized, [x1, y1, w, h], l=9, rt=3)
