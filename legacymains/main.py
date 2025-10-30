@@ -7,16 +7,18 @@ from PIL import Image
 import face_recognition
 import requests
 from datetime import datetime, timedelta
+import time
 print("Dependencies Imported")
 
-facemodel = YOLO(r'doorbellcam\yolov11n-face.pt')
+facemodel = YOLO(r'C:\Users\omgui\Downloads\sciencefair\results\yolov11n-face.pt')
 print("Model Loaded")
 database_path = r"C:\Users\omgui\Downloads\sciencefair\doorbellcam\sample_database"
 known_encodings = []
 known_names = []
 
 def open_door():
-    requests.get("http://ompi4.local:5000/on")
+    #requests.get("http://ompi4.local:5000/on")
+    time.sleep(4)
 
 for file in os.listdir(database_path):
     if file.endswith(('.jpg', '.png', '.jpeg')):
@@ -49,6 +51,7 @@ while True:
     rgb_frame = frame[:, :, ::-1]  # Convert to RGB
     video_resized = cv2.resize(rgb_frame, (700, 500))
     
+    #"""
     face_result = facemodel.predict(video_resized, conf=0.40)
 
     for info in face_result:
@@ -78,17 +81,19 @@ while True:
                     label = f"{name} {status}"
                     frames_detected+=1
 
+                    """
                     if(frames_detected >= 3 and datetime.now() >= prev_time + timedelta(seconds=20)):
                         prev_time = datetime.now()
                         frames_detected = 0
                         open_door()
-                    
+                    """
+                        
             cvzone.cornerRect(video_resized, [x1, y1, w, h], l=9, rt=3)
             cv2.putText(video_resized, label , (x1, y1-10), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+    #"""
     
     video_resized = video_resized[:, :, ::-1]
     cv2.imshow('frame', video_resized)
-    
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
