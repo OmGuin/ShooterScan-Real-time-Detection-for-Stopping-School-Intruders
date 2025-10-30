@@ -9,13 +9,15 @@ This study develops a method for automated identification of individuals that co
 
 
 ## Documentation
-Note: .ipynb files are intended to be run on vast.ai, so ``requirements.txt`` is not applicable to these files. Python 3.9 is recommended for the notebooks.  
+Note: .ipynb files are intended to be run on vast.ai. Python 3.9 is recommended for the notebooks.  
 Utilize L40 or Nvidia RTX 5090 GPU for ideal computational performance at low cost.  
 Thank you [Vast](https://vast.ai/) for bringing convenience to training.
 
 ### Doorbell Cam
 Obtain RTSP/Flask stream link
-Download YOLO model (or desired model)  
+Download YOLO model (or desired model)
+
+We found that installing packages this way solved our issues with dlib and face_recognition:
 run ``pip install dlib-bin``
 run ``pip install -r requirements.txt``
 run ``pip install face_recognition --no-deps``
@@ -23,23 +25,13 @@ run ``pip install face_recognition --no-deps``
 
 
 ### CCTV cam
-Upload .ipynb  
-deformable_detr_config.py in workspace  
-requirements.txt in workspace  
-_base and deformable_detr in root
-Train model to get .pth... Refer to trained .ipynb for 
+Upload .ipynb, deformable_detr_config.py, and requirements.txt in workspace  
+\_base\_ and deformable_detr in root
+Train model, save it to .pth, and use it for inference 
 
-Use following ffmpeg commands if video size exceeds DETR input size
+Use following ffmpeg command if video size exceeds DETR input size
 ```
-ffmpeg -i 20241203_170237.mp4 -s 640x480 -c:a copy 20241203_170237_resized.mp4
-
-ffmpeg -i 20241203_170144.mp4 -s 640x480 -c:a copy 20241203_170144_resized.mp4
-
-ffmpeg -i 20241203_170119.mp4 -s 640x480 -c:a copy 20241203_170119_resized.mp4
-
-ffmpeg -i 20241203_170054.mp4 -s 640x480 -c:a copy 20241203_170054_resized.mp4
-
-ffmpeg -i 20241203_165932.mp4 -s 640x480 -c:a copy 20241203_165932_resized.mp4
+ffmpeg -i test_video.mp4 -s 640x480 -c:a copy test_video_resized.mp4
 ```
 
 ## Authors
@@ -49,7 +41,6 @@ ffmpeg -i 20241203_165932.mp4 -s 640x480 -c:a copy 20241203_165932_resized.mp4
 
 
 ## Acknowledgements
-
  - [CCTV-Gun](https://github.com/srikarym/CCTV-Gun)
  - [face_recognition](http://github.com/ageitgey/face_recognition)
  - [ultralytics](https://github.com/ultralytics/ultralytics)

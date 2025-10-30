@@ -5,7 +5,6 @@ known_face_encodings = []
 known_face_names = []
 
 
-
 def load_known_faces():
     for filename in os.listdir(database_path):
         if filename.endswith(".jpg") or filename.endswith(".png"):

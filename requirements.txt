@@ -8,7 +8,6 @@ ultralytics
 deepface
 tf-keras
 moviepy
-face_recognition
 deepface
 opencv-python
 pillow
