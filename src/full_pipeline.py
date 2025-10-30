@@ -11,8 +11,8 @@ from collections import deque
 from threading import Thread, Lock
 
 
-facemodel = YOLO(r'C:\Users\omgui\Desktop\SS\results\yolov11n-face.pt')
-database_path = r"C:\Users\omgui\Desktop\SS\doorbellcam\sample_database"
+facemodel = YOLO("./results/yolov11n-face.pt')
+database_path = "/doorbellcam/sample_database"
 known_encodings = []
 known_names = []
 
@@ -20,7 +20,6 @@ def open_door():
     requests.get("http://ompi4.local:5000/on")
 
 class DoorOpener:
-    """Runs open_door() on a background thread with a cooldown and single-flight guard."""
     def __init__(self, cooldown_sec: float = 20.0):
         self.cooldown = cooldown_sec
         self._lock = Lock()
@@ -28,9 +27,6 @@ class DoorOpener:
         self._last_ts = 0.0
 
     def trigger(self) -> bool:
-        """Try to start a door-open operation in the background.
-        Returns True if it actually started; False if blocked by cooldown/already running.
-        """
         now = time.time()
         with self._lock:
             if self._running:
@@ -63,16 +59,16 @@ for file in os.listdir(database_path):
         if encodings:
             known_encodings.append(encodings[0])
             known_names.append(os.path.splitext(file)[0])
-print(f"Database set up for: {known_names}")
+print(f"Database: {known_names}")
 
-# ---- Try to force FFMPEG capture (often better for HTTP/MJPEG) ----
 CAP_BACKEND = cv2.CAP_FFMPEG
 camera = "http://ompi3:8080/video_feed_0"
 
 def set_capture_low_latency(cap):
     try:
         cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
-    except Exception:
+    except Exception:for start_time in range(0, duration):
+
         pass
 
 class LatestFrameReader:
@@ -189,10 +185,9 @@ while True:
                         name = known_names[min_idx]
                         if frames_detected >= 3:
                             status = "Verified"
-                            # >>> Non-blocking trigger; returns False if on cooldown or already running
+                            # non blocking trigger
                             if door_opener.trigger():
                                 print("[DoorOpener] Triggered.")
-                            # reset the verification counter after a successful trigger
                             frames_detected = 0
                         else:
                             frames_detected += 1

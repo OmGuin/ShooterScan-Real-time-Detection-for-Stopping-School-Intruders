@@ -1,20 +1,15 @@
 from moviepy.video.io.VideoFileClip import VideoFileClip
 
-# Load the video
-input_video = "C:\Users\omgui\Downloads\sciencefair\results\VID_20241202_234744.mp4"  # Replace with the path to your video
-output_folder = "clips/"  # Folder to save the clips
+input_video = "../VID_20241202_234744.mp4"
+output_folder = "../clips/" 
 
-# Create the output folder if it doesn't exist
 import os
 os.makedirs(output_folder, exist_ok=True)
 
-# Load the video file
 video = VideoFileClip(input_video)
 
-# Get the video duration
 duration = int(video.duration)
 
-# Split the video into 1-second clips
 for start_time in range(0, duration):
     end_time = start_time + 1
     clip = video.subclipped(start_time, end_time)

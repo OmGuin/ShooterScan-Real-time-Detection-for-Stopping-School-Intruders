@@ -6,8 +6,8 @@ import numpy as np
 from PIL import Image
 from deepface import DeepFace
 
-facemodel = YOLO(r'C:\Users\omgui\Downloads\sciencefair\results\yolov11n-face.pt', verbose = False)
-clips = r"C:\Users\omgui\Downloads\sciencefair\results\clips"
+facemodel = YOLO('../yolov11n-face.pt', verbose = False)
+clips = "../clips"
 
 
 for clip in os.listdir(clips):

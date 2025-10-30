@@ -1,5 +1,5 @@
 import smtplib
-
+import os
 
 email = "om.guin@gmail.com"
 
@@ -12,11 +12,11 @@ subject = "[URGENT] GUN DETECTED ON CAMPUS"
 message = 'A FIREARM HAS BEEN DETECTED BY A CCTV CAMERA ON CAMPUS. THIS IS NOT A TEST. LOCK DOWN IMMEDIATELY'
 
 text = f"Subject: {subject}\n\n{message}"
-port = 0 #change this
+port = 0
 server = smtplib.SMTP("smtp.gmail.com", port)
 
 server.starttls()
-google_app_pass = "blooporium" # change this
+google_app_pass = os.getenv("GOOGLEAPPPASS")
 server.login(email, google_app_pass)
 
 server.sendmail(email, reciever_email, text)

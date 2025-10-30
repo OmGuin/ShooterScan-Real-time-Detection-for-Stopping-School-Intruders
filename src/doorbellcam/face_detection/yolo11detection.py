@@ -57,9 +57,9 @@ video = 0
 cap = cv2.VideoCapture(video)
 
 #----------------------------------- YOLO 11 METHOD
-facemodel = YOLO(r'sciencefair\yolov11n-face.pt')
+facemodel = YOLO('yolov11n-face.pt')
 
-database_path = r"C:\Users\omgui\Downloads\sciencefair\doorbellcam\sample_database"
+database_path = 'C:../sample_database"
 
 #print(known_face_encodings)
 print(known_face_names)
