@@ -76,9 +76,8 @@ while True:
     for (top, right, bottom, left), face_encoding in zip(face_locations, face_encodings):
         matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
 
-        name = "Unknown"  # Default to "Unknown" if no match is found
+        name = "Unknown"  
 
-        # If there's a match, assign the name of the known person
         if True in matches:
             first_match_index = matches.index(True)
             name = known_face_names[first_match_index]
@@ -86,13 +85,11 @@ while True:
         
         cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
 
-        # Label the face with the name
         font = cv2.FONT_HERSHEY_DUPLEX
         cv2.putText(frame, name, (left + 6, bottom - 6), font, 0.5, (255, 255, 255), 1)
         
 
     time.sleep(0.1)
-    # Display the result frame with recognized faces
     cv2.imshow('Real-time Face Recognition', frame)
     """
 

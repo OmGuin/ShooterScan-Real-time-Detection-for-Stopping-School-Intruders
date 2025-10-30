@@ -22,7 +22,7 @@ for clip in os.listdir(clips):
             cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
             continue
     
-        rgb_frame = frame[:, :, ::-1]  # Convert to RGB
+        rgb_frame = frame[:, :, ::-1]
         video_resized = cv2.resize(rgb_frame, (360, 640))
 
         
@@ -30,11 +30,11 @@ for clip in os.listdir(clips):
         cv2.putText(
             video_resized, 
             clip, 
-            (10, 30),  # Position of the text (x, y)
+            (10, 30),
             cv2.FONT_HERSHEY_SIMPLEX, 
-            1,  # Font size
-            (255, 255, 255),  # Text color (white)
-            2,  # Line thickness
+            1,
+            (255, 255, 255),
+            2,
             cv2.LINE_AA
         )
 
